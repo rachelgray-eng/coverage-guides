@@ -720,7 +720,7 @@
     const btn = form.querySelector('.btn');
     btn.disabled = true; btn.textContent = 'Sending…';
     try {
-      const res = await fetch('https://formspree.io/f/rachelgray@squareup.com', {
+      const res = await fetch('https://formsubmit.co/ajax/rachelgray@squareup.com', {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({ guide: 'Dino', name: name || 'Anonymous', type, urgency, message })

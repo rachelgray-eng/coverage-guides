@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coverage Guides</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8f9fa;
+      color: #202124;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 2rem; }
+    ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 480px; }
+    li a {
+      display: block;
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: box-shadow 0.15s;
+    }
+    li a:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .name {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+    .role {
+      font-size: 0.85rem;
+      color: #5f6368;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Coverage Guides</h1>
+  <ul>
+    <li style="--accent: #7c3aed;">
+      <a href="coverage-brad.html">
+        <div class="name">Brad Axen</div>
+        <div class="role">AiDA (AI &amp; Data Analytics) Tech Lead · Engineering</div>
+      </a>
+    </li>
+    <li style="--accent: #1a73e8;">
+      <a href="coverage-dino.html">
+        <div class="name">Dino</div>
+        <div class="role">Applied Security Engineering (BASE) Lead</div>
+      </a>
+    </li>
+    <li style="--accent: #0d9488;">
+      <a href="coverage-randy.html">
+        <div class="name">Randy W</div>
+        <div class="role">Leading the Reliability Organization</div>
+      </a>
+    </li>
+  </ul>
+</body>
+</html>

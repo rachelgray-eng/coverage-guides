@@ -709,7 +709,7 @@
 </footer>
 
 <script>
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
     const name = form.querySelector('input[type=text]').value.trim();
@@ -717,9 +717,22 @@
     const message = form.querySelector('textarea').value.trim();
     const urgency = form.querySelectorAll('select')[1].value;
     if (!message) { alert('Please enter a message.'); return; }
-    const subject = encodeURIComponent(`Coverage Guide Feedback [Dino] – ${type || 'General'}`);
-    const body = encodeURIComponent(`From: ${name || 'Anonymous'}\nType: ${type}\nUrgency: ${urgency}\n\n${message}`);
-    window.open(`https://mail.google.com/mail/?view=cm&to=rachelgray@squareup.com&su=${subject}&body=${body}`, '_blank');
+    const btn = form.querySelector('.btn');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://formspree.io/f/rachelgray@squareup.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ guide: 'Dino', name: name || 'Anonymous', type, urgency, message })
+      });
+      if (!res.ok) throw new Error();
+      form.reset();
+      btn.textContent = 'Sent!';
+      setTimeout(() => { btn.disabled = false; btn.textContent = 'Submit'; }, 3000);
+    } catch {
+      btn.disabled = false; btn.textContent = 'Submit';
+      alert('Failed to send. Please try again.');
+    }
   }
 
   (function () {
